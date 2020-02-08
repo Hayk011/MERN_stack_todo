@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const app: express.Application = express();
 const homeRout = require("./routes/home");
 const cors = require("cors");
-// app.use(express.static("public"))
 app.use(cors());
 app.use(express.json());
 app.use("/", homeRout);
@@ -15,8 +14,7 @@ async function start() {
       useUnifiedTopology: true
     }
   );
-  app.listen(5000, (req, res) => {
-    // tslint:disable-next-line:no-console
+  app.listen(8000, (req, res) => {
     console.log("server is runing");
   });
 }

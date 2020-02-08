@@ -10,6 +10,5 @@ module.exports = router;
 router.post("/", async (req: Request, res: Response) => {
   const colection = await Todo.findById(req.body._id);
   colection.condidate = !!req.body.condidate;
-  console.log(req.body);
   await colection.save();
 });
