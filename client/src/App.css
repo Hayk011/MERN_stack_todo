@@ -5,6 +5,25 @@
   padding: 10px 10px;
   border: 1px solid #ccc;
 }
-.done{
+.done {
   text-decoration: line-through;
+}
+.edit-btn {
+  margin-right: 25px;
+}
+.edit-btn a {
+  text-decoration: none;
+  color: #fff;
+}
+.edit-title {
+  text-align: center;
+  color: #ccc;
+}
+.green {
+  display: block;
+  margin: 0 auto;
+}
+.green a {
+  text-decoration: none;
+  color: #fff;
 }
