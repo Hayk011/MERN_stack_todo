@@ -1,5 +1,5 @@
 import express from "express";
-import mongoose from "mongoose";
+import  mongoose from "mongoose";
 const app: express.Application = express();
 const homeRout = require("./routes/home");
 const cors = require("cors");
@@ -15,7 +15,7 @@ async function start() {
         useUnifiedTopology: true
       }
     );
-    app.listen(8000, (req, res) => {
+    app.listen(8000, () => {
       console.log("server is runing");
     });
   } catch (e) {

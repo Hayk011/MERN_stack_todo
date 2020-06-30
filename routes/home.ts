@@ -13,7 +13,6 @@ router.put("/", async (req: Request, res: Response) => {
   await colection.save();
 });
 router.post("/", async (req: Request, res: Response) => {
-  console.log("in");
   const schema = Joi.object().keys({
     title: Joi.string()
       .min(2)
@@ -35,14 +34,20 @@ router.post("/", async (req: Request, res: Response) => {
     }
   );
 });
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req: Request, res: Response) => {
   const toDo = await todo.findById(req.params.id);
-  return res.json(toDo);
+  res.json(toDo).end();
 });
-router.post("/:id", async (req, res) => {
-  const todoItem: IToDo = await todo.findById(req.params.id);
-  todoItem.title = req.body.value;
-  await todoItem.save();
+router.post("/:id", async (req: Request, res: Response) => {
+  try {
+    const todoItem: IToDo = await todo.findById(req.params.id);
+    todoItem.title = req.body.value;
+    await todoItem.save();
+    res.end();
+  } catch (e) {
+    console.log(e.message);
+  }
+
 });
 
 module.exports = router;

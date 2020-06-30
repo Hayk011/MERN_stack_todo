@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  back:
+    build:
+      context: "./"
+    ports:
+    - "8000:8000"
+    volumes:
+    - ./:/usr/src/app
+
+  front:
+    build:
+      context: "./client"
+    ports:
+    - "3000:3000"
+    volumes:
+    - ./client/:/usr/src/app
